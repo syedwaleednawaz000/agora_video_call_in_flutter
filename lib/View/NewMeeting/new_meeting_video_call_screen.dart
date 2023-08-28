@@ -27,7 +27,7 @@ class _NewMeetingCallScreenState extends State<NewMeetingCallScreen> {
     client = AgoraClient(
         agoraConnectionData: AgoraConnectionData(
           appId: AppConstant.appID,
-          tempToken: token,
+          // tempToken: token,
           channelName: widget.meetingID.toString(),
         ),enabledPermission: [Permission.camera,Permission.audio,Permission.microphone]);
 

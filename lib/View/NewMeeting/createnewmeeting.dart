@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:agoravideocall/View/NewMeeting/new_meeting_video_call_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
@@ -14,10 +16,27 @@ class _CreateNewMeetingState extends State<CreateNewMeeting> {
   var uuid = const Uuid();
   TextEditingController controller = TextEditingController();
 
+
+  String generateUserId() {
+    final Random _random = Random();
+    const String _alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+    String userId = '';
+
+    for (int i = 0; i < 8; i++) {
+      int index = _random.nextInt(_alphabet.length);
+      userId += _alphabet[index];
+    }
+
+    return userId;
+  }
+
+
   @override
   void initState() {
     // TODO: implement initState
-    controller.text = uuid.v1().toString().substring(0,8);
+    String userId = generateUserId();
+    controller.text = userId;
     super.initState();
   }
   @override
