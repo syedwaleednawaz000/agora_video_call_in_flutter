@@ -33,8 +33,9 @@ class _JoinMeetingVideoCallScreenState extends State<JoinMeetingVideoCallScreen>
     super.initState();
       setState(() {
         loading =false;
-        videoCall();
-        initAgora();
+        videoCall().then((value){
+          initAgora();
+        });
       });
   }
 
